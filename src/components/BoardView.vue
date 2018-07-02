@@ -21,7 +21,20 @@
           }
         },
         mounted(){
+            var self = this;
             window.addEventListener('keydown', this.handleKeyDown.bind(this));
+            Rhui.mobile.swipeLeft(window, function(){
+                self.handleKeyDown({keyCode:37})
+            });
+            Rhui.mobile.swipeUp(window, function(){
+                self.handleKeyDown({keyCode:38})
+            });
+            Rhui.mobile.swipeRight(window, function(){
+                self.handleKeyDown({keyCode:39})
+            });
+            Rhui.mobile.swipeDown(window, function(){
+                self.handleKeyDown({keyCode:40})
+            });
         },
         beforeDestroy(){
             window.removeEventListener('keydown', this.handleKeyDown.bind(this));
@@ -38,7 +51,7 @@
                     return;
                 }
                 if (event.keyCode >= 37 && event.keyCode <= 40) {
-                    event.preventDefault();
+                    event.preventDefault && event.preventDefault();
                     var direction = event.keyCode - 37;
                     this.board.move(direction)
                 }

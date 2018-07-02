@@ -3,6 +3,7 @@
 
 import './assets/scss/style.scss'
 import './assets/scss/main.scss'
+import './swipe.js'
 import Vue from 'vue'
 import BoardView from './components/BoardView.vue'
 
