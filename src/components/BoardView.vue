@@ -23,18 +23,20 @@ export default {
   mounted() {
     var self = this;
     window.addEventListener("keydown", this.handleKeyDown.bind(this));
+
+    var options = {isStopPropagation: true, isPreventDefault: true};
     Rhui.mobile.swipeLeft(window, function() {
       self.handleKeyDown({ keyCode: 37 });
-    });
+    }, options);
     Rhui.mobile.swipeUp(window, function() {
       self.handleKeyDown({ keyCode: 38 });
-    });
+    }, options);
     Rhui.mobile.swipeRight(window, function() {
       self.handleKeyDown({ keyCode: 39 });
-    });
+    }, options);
     Rhui.mobile.swipeDown(window, function() {
       self.handleKeyDown({ keyCode: 40 });
-    });
+    }, options);
   },
   beforeDestroy() {
     window.removeEventListener("keydown", this.handleKeyDown.bind(this));
